@@ -22,4 +22,18 @@ function getWeather() {
         alert('Error fetching current weather data. Please try again.');
     });
 
+    fetch(forecastUrl)   // Step 1: Send request to the API URL
+    .then(response => response.json())   // Step 2: Convert response into JSON (JavaScript Object)
+    .then(data => {
+        // Step 3: Data is ready to use
+        displayHourlyForecast(data.list);   // 'list' contains hourly forecast details, data.list is simply the forecast data array.
+    })
+    .catch(error => {
+        // Step 4: Handle any errors (like no internet, wrong API key, etc.)
+        console.error('Error fetching hourly forecast data:', error); 
+        alert('Error fetching hourly forecast data. Please try again.');
+    });
+
+
+
 }
