@@ -1,5 +1,4 @@
 body {
-
     background-color: #8C52FF;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
@@ -11,6 +10,7 @@ body {
 
 #weather-container {
     background: rgba(255, 255, 255, 0.3);
+    width: 90%; /* ✅ makes it responsive */
     max-width: 400px;
     padding: 20px;
     border-radius: 15px;
@@ -26,12 +26,13 @@ h2, label, p {
 }
 
 input {
-    width: calc(100% - 16px);
-    padding: 8px;
+    width: 100%; /* ✅ full width on all screens */
+    padding: 10px;
     box-sizing: border-box;
     border-radius: 10px;
     border: 1px solid white;
     margin-top: 20px;
+    font-size: 16px;
 }
 
 button {
@@ -42,10 +43,85 @@ button {
     border-radius: 10px;
     cursor: pointer;
     margin-top: 20px;
-    width: 100px;
+    width: 100%; /* ✅ full width for mobile */
+    max-width: 120px; /* ✅ keeps smaller on desktop */
     font-size: 15px;
 }
 
 button:hover {
     background: #8b48d7;
+}
+
+#temp-div p {
+    font-size: 60px;
+    margin-top: -30px;
+}
+
+#weather-info {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+#weather-icon {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 10px;
+    display: none;
+}
+
+#hourly-forecast {
+    margin-top: 30px;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    gap: 10px; /* ✅ better spacing */
+    justify-content: flex-start;
+    padding-bottom: 10px; /* ✅ avoids cut-off */
+}
+
+.hourly-item {
+    flex: 0 0 auto;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.hourly-item img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+#hourly-heading {
+    color: #fff;
+    margin-top: 10px;
+}
+
+/* 📱 Small Screens (mobile) */
+@media (max-width: 600px) {
+    #temp-div p {
+        font-size: 40px;
+    }
+    #weather-icon {
+        width: 150px;
+        height: 150px;
+    }
+    .hourly-item {
+        width: 60px;
+    }
+    h2 {
+        font-size: 1.3rem;
+    }
+}
+
+/* 💻 Larger Screens */
+@media (min-width: 900px) {
+    #weather-container {
+        max-width: 500px;
+    }
+    #temp-div p {
+        font-size: 70px;
+    }
 }
