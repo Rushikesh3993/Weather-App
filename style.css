@@ -1,5 +1,7 @@
 body {
-    background-color: #8C52FF;
+    background: linear-gradient(-45deg, #8C52FF, #5CE1E6, #FF7EB3, #FFDD94);
+    background-size: 400% 400%;
+    animation: gradientAnimation 12s ease infinite; /* 🔥 gradient moves */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     align-items: center;
@@ -7,6 +9,21 @@ body {
     height: 100vh;
     margin: 0;
 }
+
+/* 🎨 Gradient Animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
 
 #weather-container {
     background: rgba(255, 255, 255, 0.3);
